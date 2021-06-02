@@ -1,4 +1,5 @@
 using msgpb = MsgPb;
+using codepb = CodePb;
 
 class App {
     static int Main(string[] args) {
@@ -21,6 +22,8 @@ class App {
         print(msgpb::ResourceDescriptor.Types.Style.DeclarativeFriendly);
 
         print(msgpb::ChangeType.Create);
+
+        print(codepb::Code.Success);
 
         return 0;
     }

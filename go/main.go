@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"go/go/msgpb"
+	"proto-example/go/codepb"
+	"proto-example/go/msgpb"
 )
 
 func main() {
@@ -23,5 +24,7 @@ func main() {
 	fmt.Println(msgpb.ResourceDescriptor_DECLARATIVE_FRIENDLY)
 
 	fmt.Println(msgpb.ChangeType_CREATE)
+
+	fmt.Println(codepb.Code_Success)
 
 }
