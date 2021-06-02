@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+import "codepb/code.proto";
+
+option go_package = "proto-example/go/msgpb";
+option csharp_namespace = "MsgPb";
+
+package msgpb;
+
+message Test {
+  codepb.Code code = 1;
+}
+
+// Good in cs, Bad in go
+enum EMessageCode
+{
+	CODE_Success = 0;
+	CODE_UNKNOWN = 1;
+}
+
+message Code {
+    enum Enum {
+    	Success = 0;
+    	Unknown = 1;
+    }
+}
+
+message MsgId {
+	enum Enum {
+		Unkown = 0;
+		LoginRequest = 1;
+		LoginResponse = 2;
+	}
+}
+
+message MsgCode {
+	enum Enum {
+        Success = 0;
+		Unknown = 1;
+    }
+}
+
+message Msg {
+	enum Id {
+		IdUnkown = 0;
+		IdLoginRequest = 1;
+		IdLoginResponse = 2;
+	}
+
+    enum Code {
+        CodeSuccess = 0;
+		CodeUnknown = 1;
+    }
+}
+
+message ResourceDescriptor {
+    // A description of the historical or future-looking state of the
+    // resource pattern.
+    enum History {
+      // The "unset" value.
+      HISTORY_UNSPECIFIED = 0;
+  
+      // The resource originally had one pattern and launched as such, and
+      // additional patterns were added later.
+      ORIGINALLY_SINGLE_PATTERN = 1;
+  
+      // The resource has one pattern, but the API owner expects to add more
+      // later. (This is the inverse of ORIGINALLY_SINGLE_PATTERN, and prevents
+      // that from being necessary once there are multiple patterns.)
+      FUTURE_MULTI_PATTERN = 2;
+    }
+  
+    // A flag representing a specific style that a resource claims to conform to.
+    enum Style {
+      // The unspecified value. Do not use.
+      STYLE_UNSPECIFIED = 0;
+  
+      // This resource is intended to be "declarative-friendly".
+      //
+      // Declarative-friendly resources must be more strictly consistent, and
+      // setting this to true communicates to tools that this resource should
+      // adhere to declarative-friendly expectations.
+      //
+      // Note: This is used by the API linter (linter.aip.dev) to enable
+      // additional checks.
+      DECLARATIVE_FRIENDLY = 1;
+    }
+}
+
+enum ChangeType {
+    UNKNOWN_CHANGE_TYPE = 0;
+    CREATE = 1;
+    UPDATE = 2;
+    DELETE = 3;
+}

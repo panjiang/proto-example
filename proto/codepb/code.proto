@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+
+
+option go_package = "proto-example/go/codepb";
+option csharp_namespace = "CodePb";
+
+package codepb;
+
+enum Code {
+    Success = 0;
+    Unknown = 1;
+}
